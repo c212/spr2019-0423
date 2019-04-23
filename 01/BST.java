@@ -31,30 +31,32 @@ public class BST<T extends Comparable<T>> {
   public String toString() {
     return this.root == null ? "" : this.root + "";
   }
+  public int size() {
+    if (this.root == null) return 0; 
+    else return 1 + this.root.left.size() + this.root.right.size(); 
+  }
+  public T find(int k) {
+    if (k < 0) return null; 
+    else if (k >= this.size()) return null; 
+    return null; 
+  }
   
   public static void main(String[] args) {
     BST<Integer> a = new BST<Integer>();  
-    System.out.println( a ); // expect: 
-    System.out.println( a.print() ); // expect: 
     a.insert( 8 ); 
-    System.out.println( a ); // expect: 8
-    System.out.println( a.print() ); // expect: 
     a.insert( 3 ); 
-    System.out.println( a ); // expect: 3 8 
-    System.out.println( a.print() ); // expect: 
     a.insert( 1 ); 
-    System.out.println( a ); // expect: 1 3 8 
-    System.out.println( a.print() ); // expect: 
     a.insert( 6 ); 
-    System.out.println( a ); // expect: 1 3 6 8 
-    System.out.println( a.print() ); // expect: 
     a.insert( 4 ); 
-    System.out.println( a ); // expect: 1 3 4 6 8 
-    System.out.println( a.print() ); // expect: 
-    a.insert( 10 ); 
+    a.insert(10 ); 
+    a.insert( 7 ); 
+    a.insert(14); 
+    a.insert(13 ); 
     System.out.println( a ); // expect: 1 3 4 6 8 10  
     System.out.println( a.print() ); // expect: (8 (3 (1  . .) (6 (4  . .) . )) (10  . .))
                                              // (8 (3 (1 ()()) (6 (4 ()()) ())) (10 ()())) 
- 
+    System.out.println( a.find(3) ); // null 
+    System.out.println( a.find(-2) ); // null 
+    System.out.println( a.find(10) ); // null 
   }
 }
