@@ -25,6 +25,18 @@ public class BST<T extends Comparable<T>> {
     return this.root == null ? "" : this.root + "";
   }
   public static void main(String[] args) {
-     
+    BST<Integer> a = new BST<Integer>();  
+    System.out.println( a ); // expect: 
+    a.insert( 8 ); 
+    System.out.println( a ); // expect: 8
+    a.insert( 3 ); 
+    System.out.println( a ); // expect: 3 8 
+    a.insert( 1 ); 
+    System.out.println( a ); // expect: 1 3 8 
+    a.insert( 6 ); 
+    System.out.println( a ); // expect: 1 3 6 8 
+    a.insert( 4 ); 
+    System.out.println( a ); // expect: 1 3 4 6 8 
+ 
   }
 }

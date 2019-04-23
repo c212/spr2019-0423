@@ -17,6 +17,6 @@ class Node<T extends Comparable<T>> {
   }
   public static void main(String[] args) {
     Node<Integer> a = new Node<Integer>(3);
-    System.out.println( a ); // expect: 
+    System.out.println( a ); // expect: 3
   }
 }
