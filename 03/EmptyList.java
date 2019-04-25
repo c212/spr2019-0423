@@ -1,11 +1,18 @@
 public class EmptyList implements LispList {
-  public boolean empty() { return true; }; 
-  public Object first() { return null; }
-  public LispList rest() { return null; } 
+  public boolean empty() { return true; }
+  // https://docs.oracle.com/javase/8/docs/api/java/lang/UnsupportedOperationException.html
+  public Object first() throws UnsupportedOperationException { 
+    throw new UnsupportedOperationException(); 
+  }
+  public LispList rest() throws UnsupportedOperationException { return null; } 
   public static void main(String[] args) {
     EmptyList a = new EmptyList(); 
     System.out.println( a ); 
-    System.out.println( a.first() ); 
+    try { 
+      System.out.println( a.first() );
+    } catch (UnsupportedOperationException e) {
+      System.out.println( "An empty list has no first." ); 
+    }
     System.out.println( a.rest() ); 
     System.out.println( a.empty() ); // true 
     
